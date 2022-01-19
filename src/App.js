@@ -3,13 +3,12 @@ import { useGetCurrentMethodQuery } from "./api/apiMethod";
 
 function App(props) {
     const {data={}, isLoading} = useGetCurrentMethodQuery()
-    console.log(data)
 
     if(isLoading){
-        return (<h2>Loading</h2>)
+       return (<h2>Lo ading</h2>)
     }
 
-    return ( <div>{}</div> );
+    return ( <div>{console.log(data)}</div> );
 }
 
 export default App;

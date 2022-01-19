@@ -30,7 +30,7 @@ export const apiMethod = createApi({
 	endpoints: (builder) => ({
 		getCurrentMethod: builder.query({
 			//без изменений
-			query: () => "open/method_2.amx",
+			query: () => "current",
 			method: "GET",
 			// providesTags: ['Heroes'],//связь
 		}),
