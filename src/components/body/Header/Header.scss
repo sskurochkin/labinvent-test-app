@@ -1,0 +1,142 @@
+@import "../../../assets/scss/vars.scss";
+
+.body__header {
+  padding: 0 20px 0 15px;
+  display: flex;
+  align-items: center;
+  height: 50px;
+  font-size: 20px;
+  color: $t-gray;
+  box-shadow: 0 1px 2px rgba($color: #333333, $alpha: 0.2);
+  position: relative;
+  z-index: 4;
+  .menu {
+    flex: 0 0 60px;
+    height: 100%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all linear 0.2s;
+
+    span {
+      display: block;
+      height: 2px;
+      width: 24px;
+      background-color: $t-gray;
+      position: relative;
+      transition: all linear 0.2s;
+
+      &::after,
+      &::before {
+        content: "";
+        display: block;
+        background-color: $t-gray;
+        width: 24px;
+        height: 2px;
+        position: relative;
+        top: 10px;
+        transition: all linear 0.2s;
+      }
+      &::after {
+        top: -11px;
+      }
+    }
+    &:hover {
+      background-color: $line;
+    }
+    &:hover span,
+    &:hover span::after,
+    &:hover span::before {
+      background-color: #fff;
+      color: #fff;
+    }
+  }
+  &__nav {
+    flex: 1 1 auto;
+  }
+  &__admin {
+    display: flex;
+  }
+}
+
+
+.nav {
+  &__list {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 20px;
+    color: #a9a9a9;
+    position: relative;
+
+    &__sublist {
+      box-shadow: 0 2px 2px rgba($color: #333333, $alpha: 0.2);
+      opacity: 0;
+      visibility: hidden;
+      position: absolute;
+      top: 50px;
+      left: 0;
+      z-index: 2;
+      background-color: $primary;
+      transition: all ease 0.2s;
+    }
+    li {
+      a {
+        height: 50px;
+        padding: 0 40px;
+        line-height: 50px;
+        display: block;
+        position: relative;
+        transition: all linear 0.2s;
+        &:hover {
+          background-color: $line;
+          color: #fff;
+        }
+      }
+      &:hover .nav__list__sublist {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+
+  }
+}
+
+
+.admin {
+  &__name {
+    padding: 0 20px;
+    height: 50px;
+    border-left: 1px solid $line;
+    display: flex;
+    align-items: center;
+    img {
+      margin-right: 15px;
+      width: 30px;
+      height: 30px;
+      object-fit: contain;
+    }
+  }
+  &__lang {
+    padding: 0 35px 0 30px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    border-left: 1px solid $line;
+    .show-more::after{
+      right: -5px;
+    }
+  }
+  &__lock {
+    height: 50px;
+    padding: 0 5px 0 20px;
+    border-left: 1px solid $line;
+    img {
+      height: 100%;
+      width: 17px;
+      object-fit: contain;
+      object-position: center center;
+    }
+  }
+}

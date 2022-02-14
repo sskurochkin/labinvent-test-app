@@ -41,6 +41,20 @@ a {
     border-bottom: 1px solid $line;
 }
 
+.method-wrapper{
+  padding: 15px;
+  grid-area: method-wrapper;
+  box-shadow:  -2px 0 2px rgba($color: #333333, $alpha: 0.2);
+  display: grid;
+  border-left: 1px solid $line;
+  grid-template-columns: 1fr;
+  grid-template-rows: 485px 1fr;
+  gap: 15px 0px;
+  grid-template-areas:
+          "method"
+          "add-info-wrapper";
+}
+
 .show-more {
     position: relative;
 	&::after {

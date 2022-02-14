@@ -1,0 +1,87 @@
+@import "../../../../assets/scss/vars";
+
+.method__scheme {
+  display: flex;
+  height: 125px;
+  padding: 0 20px;
+  margin-bottom: 20px;
+}
+
+.scheme {
+  flex: 0 1 300px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  &__item {
+    text-align: center;
+    padding-top: 15px;
+    font-size: 9px;
+    &:nth-child(2) {
+      position: relative;
+      &::after,
+      &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin: auto 0;
+        left: -55px;
+        width: 70px;
+        height: 13px;
+        background-image: url(../../../../assets/img/arrow.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+      &::after {
+        left: auto;
+        right: -55px;
+      }
+    }
+  }
+  &__title {
+    color: $t-gray;
+    margin-bottom: 8px;
+  }
+  &__img {
+    margin-bottom: 10px;
+    height: 42px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &__desc {
+    font-weight: 600;
+    font-size: 11px;
+    sub{
+      vertical-align: sub;
+      font-size: smaller;
+    }
+    span {
+      display: block;
+      margin-top: 5px;
+    }
+    &--think {
+      font-weight: normal;
+    }
+  }
+  &__data {
+    flex: 1 1 auto;
+    align-self: center;
+    margin-left: 50px;
+  }
+}
+
+.data {
+  &__block {
+    font-size: 12px;
+    width: 150px;
+    padding: 5px;
+    border: 1px solid $text;
+    margin: auto;
+  }
+  &__text:not(:last-child) {
+    margin-bottom: 5px;
+  }
+}

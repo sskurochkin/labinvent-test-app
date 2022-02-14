@@ -1,0 +1,18 @@
+.table__radio {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px 0 35px;
+  margin-bottom: 20px;
+}
+
+.radio__item {
+  display: flex;
+  align-items: center;
+  input {
+    margin-right: 5px;
+  }
+  label {
+    font-family: Helvetica, sans-serif;
+    font-size: 11px;
+  }
+}

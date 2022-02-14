@@ -20,8 +20,7 @@ function Sidebar() {
 			</div>
 			<div className='sidebar__footer'>
 				<div className='sidebar__footer__timeline footer__timeline'>
-					<div className='footer__timeline__time'>
-						Run <span className='start'>00:13</span>/
+					<div className='footer__timeline__time'>Run<span className='start'>00:13</span>/
 						<span className='alltime'>1:00</span>
 					</div>
 					<div className='footer__timeline__remaining'>-00:47</div>
