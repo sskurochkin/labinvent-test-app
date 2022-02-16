@@ -1,6 +1,4 @@
 import './style.scss';
-
-
 import { useGetCurrentMethodQuery } from "./api/apiMethod";
 import Body from './components/body/Body';
 import Sidebar from './components/sidebar/Sidebar';
