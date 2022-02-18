@@ -10,17 +10,20 @@ import MethodLeftbar from "./MethodLeftbar/MethodLeftbar";
 import MethodFooter from "./MethodFooter/MethodFooter";
 
 function Method(props) {
+
+	const {status, totalTime, name, countInjections, currentTime, column, pressure, runTime} = props.data
+
 	return (
 		<div className="method">
-			<MethodHeader/>
+			<MethodHeader status={status} totalTime={totalTime} currentTime={currentTime} name={name} countInjections={countInjections} runTime={runTime}/>
 			<MethodBody>
 				<MethodLeftbar/>
 
 				<div className="method__main">
 					<Scheme/>
-					<Form/>
+					<Form column={column}/>
 				</div>
-				<Table/>
+				<Table pressure={pressure}/>
 			</MethodBody>
 			<MethodFooter/>
 
