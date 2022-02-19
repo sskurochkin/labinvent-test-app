@@ -23,7 +23,7 @@ function Form(props) {
 				<div className="method__form form ">
 					<div className="form__item form__item--full ">
 						<Input type="checkbox" checked={checkbox} name="control" id="control" className="form__box"
-							   label={"On"} handleCheck={handleCheck}/>
+							   label={"On"} onChange={handleCheck}/>
 					</div>
 					<Input desc={'ml/Min'} id={'formName'} label={'Flow'} value={flow} className='form__input'
 						   disabled={disabled}/>

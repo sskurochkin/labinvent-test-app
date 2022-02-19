@@ -8,15 +8,19 @@ import Scheme from "./Scheme/Scheme";
 import Form from "./Form/Form";
 import MethodLeftbar from "./MethodLeftbar/MethodLeftbar";
 import MethodFooter from "./MethodFooter/MethodFooter";
+import {useGetCurrentMethodQuery} from "../../../api/apiMethod";
 
 function Method(props) {
 
-	const {status, totalTime, name, countInjections, currentTime, column, pressure, runTime} = props.data
+	const {data={}, isLoading, isError} = useGetCurrentMethodQuery()
+
+
+	const {status, totalTime, name, countInjections, currentTime, column, pressure, runTime} = data
 
 	return (
 		<div className="method">
 			<MethodHeader status={status} totalTime={totalTime} currentTime={currentTime} name={name} countInjections={countInjections} runTime={runTime}/>
-			<MethodBody loading={props.loading} error={props.error}>
+			<MethodBody loading={isLoading} error={isError}>
 				<MethodLeftbar/>
 				<div className="method__main">
 					<Scheme/>

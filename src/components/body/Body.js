@@ -4,16 +4,8 @@ import Wrapper from "./Wrapper/Wrapper";
 import AddInfo from "./AddInfo/AddInfo";
 import InfoCards from "./InfoCards/InfoCards";
 import Method from "./Method/Method";
-import {useGetCurrentMethodQuery} from "../../api/apiMethod";
-import Spinner from "../UI/Spinner/Spinner";
-
 
 const Body = () => {
-
-const {data={}, isLoading, isError} = useGetCurrentMethodQuery()
-	console.log(data)
-
-
 
 
 	return (<div className="body">
@@ -24,7 +16,7 @@ const {data={}, isLoading, isError} = useGetCurrentMethodQuery()
 		<Wrapper>
 			<InfoCards/>
 			<div className="method-wrapper">
-				<Method data={data} loading={isLoading} error={isError}/>
+				<Method/>
 				<AddInfo/>
 			</div>
 		</Wrapper>

@@ -1,7 +1,7 @@
 import './Input.scss'
 import React, {useState} from 'react';
 
-function Input({id, desc, label}, ...props) {
+function Input({id, desc, label, ...props}) {
 
 	// const {id, desc, value, label, className, type, checked, disabled, handleCheck} = props;
 
