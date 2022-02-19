@@ -13,7 +13,7 @@ import {useGetCurrentMethodQuery} from "../../../api/apiMethod";
 function Method(props) {
 
 	const {data={}, isLoading, isError} = useGetCurrentMethodQuery()
-
+	console.log(data)
 
 	const {status, totalTime, name, countInjections, currentTime, column, pressure, runTime} = data
 
@@ -26,7 +26,7 @@ function Method(props) {
 					<Scheme/>
 					<Form column={column}/>
 				</div>
-				<Table pressure={pressure}/>
+				<Table table={pressure}/>
 			</MethodBody>
 			<MethodFooter/>
 
