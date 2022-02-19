@@ -1,11 +1,20 @@
 import './Input.scss'
-import React from 'react';
+import React, {useState} from 'react';
 
-function Input({id, label, desc, name= null}) {
+function Input({id, desc, label}, ...props) {
+
+	// const {id, desc, value, label, className, type, checked, disabled, handleCheck} = props;
+
+	const CustomInput = (props) =>{
+		return <input {...props} />
+	}
+
 	return (
+
 		<div className="form__item ">
 			<label htmlFor={id} className="form__label ">{label}</label>
-			<input type="text " id={id} name={name} className="form__input "/>
+			<input {...props} />
+
 			<span>{desc}</span>
 		</div>
 	);

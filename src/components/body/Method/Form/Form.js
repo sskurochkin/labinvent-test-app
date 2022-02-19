@@ -1,27 +1,44 @@
 import './Form.scss'
-import React from 'react';
+import React, {useState} from 'react';
 import Title from "../../../UI/Title/Title";
 import Input from "../../../UI/Input/Input";
 
-function Form() {
+function Form(props) {
+
+	const {averageVelocity, controlOn, flow, holdupTime, postRun, pressure} = props.column
+
+	const [checkbox, setCheckbox] = useState(controlOn)
+	const [disabled, setDisabled] = useState(!controlOn)
+
+	const handleCheck = () => {
+		setCheckbox(!checkbox)
+		setDisabled(!disabled)
+	}
+
+
 	return (
 		<>
 			<div className="method__control ">
 				<Title title={'Control Mode'}/>
 				<div className="method__form form ">
 					<div className="form__item form__item--full ">
-						<input type="checkbox" name="control" id="control" className="form__box"/>
-						<label htmlFor="control " className="form__label ">On</label>
+						<Input type="checkbox" checked={checkbox} name="control" id="control" className="form__box"
+							   label={"On"} handleCheck={handleCheck}/>
 					</div>
-					<Input desc={'ml/Min'} id={'formName'} label={'Flow'}/>
-					<Input desc={'cm/sec'} id={'formVel'} label={'Average Velocity'}/>
-					<Input desc={'psi'} id={'formPres'} label={'Pressure'}/>
-					<Input desc={'min'} id={'formTime'} label={'Holdup time'}/>
+					<Input desc={'ml/Min'} id={'formName'} label={'Flow'} value={flow} className='form__input'
+						   disabled={disabled}/>
+					<Input desc={'cm/sec'} id={'formVel'} label={'Average Velocity'} value={averageVelocity}
+						   className='form__input' disabled={disabled}/>
+					<Input desc={'psi'} id={'formPres'} label={'Pressure'} value={pressure} className='form__input'
+						   disabled={disabled}/>
+					<Input desc={'min'} id={'formTime'} label={'Holdup time'} value={holdupTime} className='form__input'
+						   disabled={disabled}/>
 				</div>
 				<div className="method__post ">
 					<Title title={'Post Run'}/>
 					<div className="method__form form ">
-						<Input desc={'mL/min'} id={'formRun'} label={'Post Run'}/>
+						<Input desc={'mL/min'} id={'formRun'} label={'Post Run'} value={postRun} className='form__input'
+							   disabled={disabled}/>
 					</div>
 				</div>
 			</div>

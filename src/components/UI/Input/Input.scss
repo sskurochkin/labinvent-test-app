@@ -9,6 +9,9 @@
 
     &--full {
       flex: 0 0 100%;
+      input{
+        order: -1;
+      }
     }
   }
 
@@ -21,6 +24,9 @@
     margin-right: 5px;
     color: $text;
     text-align: center;
+    &:disabled{
+      color: $t-gray;
+    }
   }
 
   &__label {

@@ -16,9 +16,8 @@ function Method(props) {
 	return (
 		<div className="method">
 			<MethodHeader status={status} totalTime={totalTime} currentTime={currentTime} name={name} countInjections={countInjections} runTime={runTime}/>
-			<MethodBody>
+			<MethodBody loading={props.loading} error={props.error}>
 				<MethodLeftbar/>
-
 				<div className="method__main">
 					<Scheme/>
 					<Form column={column}/>

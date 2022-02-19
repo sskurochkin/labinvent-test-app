@@ -10,7 +10,7 @@ import Spinner from "../UI/Spinner/Spinner";
 
 const Body = () => {
 
-const {data={}, isLoading} = useGetCurrentMethodQuery()
+const {data={}, isLoading, isError} = useGetCurrentMethodQuery()
 	console.log(data)
 
 
@@ -24,7 +24,7 @@ const {data={}, isLoading} = useGetCurrentMethodQuery()
 		<Wrapper>
 			<InfoCards/>
 			<div className="method-wrapper">
-				{isLoading ?<Spinner/>:<Method data={data}/>}
+				<Method data={data} loading={isLoading} error={isError}/>
 				<AddInfo/>
 			</div>
 		</Wrapper>
