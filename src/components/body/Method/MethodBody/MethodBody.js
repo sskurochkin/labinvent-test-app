@@ -4,16 +4,13 @@ import React from 'react';
 import Spinner from "../../../UI/Spinner/Spinner";
 import Error from "../../../UI/Error/Error";
 
-function MethodBody({error, loading, children}) {
+function MethodBody(props) {
 
+	console.log(props)
 
 	return (
 		<div className='method__body'>
-			{error ?
-				<Error/> :
-				(loading ?
-					<Spinner/> :
-					children)}
+			{props.children}
 		</div>
 	);
 }

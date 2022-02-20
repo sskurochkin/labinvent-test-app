@@ -1,13 +1,21 @@
 import { configureStore} from "@reduxjs/toolkit";
-import { apiMethod } from "../api/apiMethod";
+import methodReducer from './methodSlice'
 
 
+const stringMiddleware = () => (next) => (action) => {
+	if (typeof action === 'string') {
+		return next({
+			type: action
+		})
+	}
+	return next(action)
+};
 
-const store = configureStore({
-	reducer: { [apiMethod.reducerPath]: apiMethod.reducer },
-	middleware: (getDefaultMiddleware) =>
-		getDefaultMiddleware().concat(apiMethod.middleware),
-	devTools: process.env.NODE_ENV !== "production", //включение devtools только для разработки
+
+export default configureStore({
+	reducer: {
+		method: methodReducer
+	},
+	middleware: getDefaultMiddleware => getDefaultMiddleware().concat(stringMiddleware),
+	devTools: process.env.NODE_ENV !== 'production'
 });
-
-export default store;
