@@ -6,7 +6,7 @@ import Title from "../../../UI/Title/Title";
 
 const Table = ({table}) => {
 
-	const [tableRows, setTableRows] =useState(table.tableSteps)
+	const [tableRows, setTableRows] =useState(table?.tableSteps || [])
 
 	const addRowHandle = () =>{
 
@@ -23,7 +23,7 @@ const Table = ({table}) => {
 
 	const elements = tableRows.map((row, index) =>{
 		return(<tr key={index}>
-			<td><input type="radio" name="table" id="" checked={row.selected}/></td>
+			<td><input type="radio" name="table" id="" checked={row.selected} onChange={()=>{}}/></td>
 			<td>{row.ramp}</td>
 			<td>{row.rate}</td>
 			<td>{row.value}</td>
