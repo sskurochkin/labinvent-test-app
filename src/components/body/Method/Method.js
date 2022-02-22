@@ -19,59 +19,45 @@ import MyModal from "../../UI/Modal/Modal";
 
 function Method(props) {
 
-	const [modal, setModal]=useState(false)
+	const [modal, setModal] = useState(false)
+
 
 	const dispatch = useDispatch()
 	const data = useSelector(getMethodSelector)
 	const methodLoadingStatus = useSelector(state => state.method.methodLoadingStatus)
 
-	useEffect(()=>{
+	useEffect(() => {
 		dispatch(fetchMethod())
 	}, [])
 
-	const loadDefaultMethod = ()=>{
+	const loadDefaultMethod = () => {
 		dispatch(fetchDefaultMethod())
 	}
-	const showAllMethods = ()=>{
+	const showAllMethods = () => {
+		console.log('show')
 		setModal(true)
 	}
-
-
-	// const createMethodList = ()=>{
-	// 	if(allMethods){
-	// 		allMethods.map(method => {
-	// 			return (
-	//
-	// 					<p key={method}>{method}</p>
-	//
-	// 			)
-	// 		})
-	// 	}
-	// }
-
-
-	console.log(methodLoadingStatus)
 
 	const {status, totalTime, name, countInjections, currentTime, column, pressure, runTime} = data
 
 
-
 	return (
 		<div className="method">
-			<MethodHeader status={status} name={name} totalTime={totalTime} currentTime={currentTime} runTime={runTime} countInjections={countInjections}/>
+			<MethodHeader status={status} name={name} totalTime={totalTime} currentTime={currentTime} runTime={runTime}
+						  countInjections={countInjections}/>
 			{
-					<MethodBody status={methodLoadingStatus}>
-						<MethodLeftbar/>
-						<div className="method__main">
-							<Scheme />
-							<Form column={column} />
-						</div>
-						<Table table={pressure} />
-					</MethodBody>
+				<MethodBody status={methodLoadingStatus}>
+					<MethodLeftbar/>
+					<div className="method__main">
+						<Scheme/>
+						<Form column={column}/>
+					</div>
+					<Table table={pressure}/>
+				</MethodBody>
 			}
 			<MethodFooter loadDefaultMethod={loadDefaultMethod} showMethods={showAllMethods}/>
-			<MyModal visible={modal} setVisible={setModal}>
-			</MyModal>
+			<MyModal visible={modal} setVisible={setModal}/>
+
 		</div>
 	);
 }

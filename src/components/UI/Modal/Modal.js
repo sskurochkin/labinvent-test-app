@@ -1,18 +1,15 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import './Modal.scss'
 import {useDispatch, useSelector} from "react-redux";
 import {getMethodList, getMethodStatus} from "../../../store/selectors";
 import Spinner from "../Spinner/Spinner";
-import {getAllMethods, openMethod} from "../../../store/methodSlice";
+import {getAllMethods, openSelectedMethod} from "../../../store/methodSlice";
 
 const MyModal = ({visible, setVisible}) => {
 
 	const dispatch = useDispatch()
 	const allMethods = useSelector(getMethodList)
-	const state = useSelector(state => state)
-	const status = useSelector(state => state.method.allMethodsStatus)
-
-	console.log(state)
+	const status = useSelector(getMethodStatus)
 
 	useEffect(()=>{
 		dispatch(getAllMethods())
@@ -23,19 +20,19 @@ const MyModal = ({visible, setVisible}) => {
 		rootClasses.push('active');
 	}
 
-	const openSelectedMethod = (name) =>{
-		dispatch(openMethod(name))
+	const openMethod = (name) =>{
+		dispatch(openSelectedMethod(name))
+		setVisible(false)
 	}
-
-
 
 	return (
 
 		<div className={rootClasses.join(' ')} onClick={() => setVisible(false)}>
 			<div className='myModalContent' onClick={(e) => e.stopPropagation()}>
-				{status==='loading'?<Spinner/>:(allMethods.map(elem=>{
+				<h2>All methods</h2>
+				{status==='loading'?<Spinner/>:(allMethods.map((elem, index)=>{
 					return(
-						<p key={elem} className='modalItem' onClick={()=>openSelectedMethod(elem)}>{elem}</p>
+						<p key={elem} className='modalItem' onClick={()=>openMethod(elem)}><span>{index + 1}.&nbsp;</span>{elem}</p>
 					)
 				}))}
 			</div>

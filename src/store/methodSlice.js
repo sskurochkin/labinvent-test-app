@@ -5,7 +5,8 @@ const initialState = {
 	method: {},
 	allMethods: [],
 	methodLoadingStatus: null,
-	allMethodsStatus: null
+	allMethodsStatus: null,
+	action: 'init'
 }
 export const fetchMethod = createAsyncThunk(
 	'method/fetchMethod',
@@ -31,25 +32,34 @@ export const getAllMethods = createAsyncThunk(
 	async function () {
 		const response = await fetch('http://localhost:5000/api/v1/method/name/saved')
 		const data = await response.json()
-		console.log(data)
 		return data
 	})
+
+export const openSelectedMethod = createAsyncThunk(
+	'method/openSelectedMethod',
+	async function(name){
+		console.log(name)
+		const response = await fetch(`http://localhost:5000/api/v1/method/open/${name}`)
+		const data = await response.json()
+		return data
+	}
+)
 
 const methodSlice = createSlice({
 	name: 'method',
 	initialState,
 	reducers: {
-		async openMethod(state, action) {
-			console.log(state)
-			const response = await fetch(`http://localhost:5000/api/v1/method/open/${action.payload}`).then(data => state.method = data.json())
-			const data = await response.json()
-			state.method = data
-
-			console.log(action)
-			console.log(data)
+		// async openMethod(state, action) {
+		// 	console.log(state)
+		// 	const response = await fetch(`http://localhost:5000/api/v1/method/open/${action.payload}`).then(data => state.method = data.json())
+		//
+		// 	state.action = action.payload()
+		//
+		// 	console.log(action)
+		// 	console.log(state.action)
 
 			// console.log(state)
-		}
+
 		//здесь должны быть действия со стейтом
 	},
 	extraReducers: (builder) => {
@@ -84,8 +94,18 @@ const methodSlice = createSlice({
 			.addCase(getAllMethods.rejected, state => {
 				state.allMethodsStatus = 'error'
 			})
+			.addCase(openSelectedMethod.pending, state => {
+				state.methodLoadingStatus = 'loading'
+			})
+			.addCase(openSelectedMethod.fulfilled, (state, action) => {
+				state.methodLoadingStatus = 'idle';
+				state.method = action.payload
+			},)
+			.addCase(openSelectedMethod.rejected, state => {
+				state.methodLoadingStatus = 'error'
+			})
 	}
 })
 
-export const {openMethod} = methodSlice.actions
+// export const {} = methodSlice.actions
 export default methodSlice.reducer
