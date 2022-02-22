@@ -1,4 +1,3 @@
-import {useHttp} from "../../../hooks/useHttp";
 import React, {useEffect, useState} from 'react';
 import Table from "./Table/Table";
 import MethodHeader from "./MethodHeader/MethodHeader";
@@ -8,12 +7,10 @@ import Form from "./Form/Form";
 import MethodLeftbar from "./MethodLeftbar/MethodLeftbar";
 import MethodFooter from "./MethodFooter/MethodFooter";
 import {useDispatch, useSelector} from "react-redux";
-import {fetchDefaultMethod, fetchMethod, getAllMethods} from '../../../store/methodSlice';
+import {fetchDefaultMethod, fetchMethod} from '../../../store/methodSlice';
 
 import './Method.scss';
-import Spinner from "../../UI/Spinner/Spinner";
-import Error from "../../UI/Error/Error";
-import {getMethodList, getMethodSelector} from "../../../store/selectors";
+import {getMethodSelector} from "../../../store/selectors";
 import MyModal from "../../UI/Modal/Modal";
 
 

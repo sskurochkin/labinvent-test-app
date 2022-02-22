@@ -36,8 +36,10 @@
   border-bottom: none;
   border-left: none;
   max-height: 300px;
-  overflow-y: scroll;
   font-family: Helvetica, sans-serif;
+  &--scroll{
+    overflow-y: scroll;
+  }
   tbody {
     display: block;
     width: 100%;

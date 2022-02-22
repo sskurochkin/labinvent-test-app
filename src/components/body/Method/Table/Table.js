@@ -3,14 +3,16 @@ import './Table.scss'
 import React, {useState} from 'react';
 import TableHeader from "./TableHeader/TableHeader";
 import Title from "../../../UI/Title/Title";
+import { v4 as uuidv4 } from "uuid";
 
 const Table = ({table}) => {
 
-	const [tableRows, setTableRows] =useState(table?.tableSteps || [])
+	const [tableRows, setTableRows] = useState(table?.tableSteps || [])
 
-	const addRowHandle = () =>{
+	const addRowHandle = () => {
 
 		let newRow = {
+			id: uuidv4(),
 			holdTime: 0,
 			ramp: '',
 			rate: 0,
@@ -21,9 +23,10 @@ const Table = ({table}) => {
 		setTableRows([...tableRows, newRow])
 	}
 
-	const elements = tableRows.map((row, index) =>{
-		return(<tr key={index}>
-			<td><input type="radio" name="table" id="" checked={row.selected} onChange={()=>{}}/></td>
+	const elements = tableRows.map((row, index) => {
+		return (<tr key={index}>
+			<td><input type="radio" name="table" id="" checked={row.selected} onChange={() => {
+			}}/></td>
 			<td>{row.ramp}</td>
 			<td>{row.rate}</td>
 			<td>{row.value}</td>
@@ -32,12 +35,14 @@ const Table = ({table}) => {
 		</tr>)
 	})
 
-return(
+	console.log(elements)
+
+	return (
 		<div className="method__table ">
 			<div className="method__table-btn" onClick={addRowHandle}/>
 			<Title title={'Pressure/Flow Settings'}/>
 			<TableHeader/>
-			<table className="table">
+			<table className={elements.length > 8 ? 'table table--scroll' : 'table'}>
 				<tbody>
 				<tr className="table-header">
 					<th/>
