@@ -12,12 +12,15 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+
   &__item {
     text-align: center;
     padding-top: 15px;
     font-size: 9px;
+
     &:nth-child(2) {
       position: relative;
+
       &::after,
       &::before {
         content: '';
@@ -34,16 +37,19 @@
         background-repeat: no-repeat;
         background-position: center;
       }
+
       &::after {
         left: auto;
         right: -55px;
       }
     }
   }
+
   &__title {
     color: $t-gray;
     margin-bottom: 8px;
   }
+
   &__img {
     margin-bottom: 10px;
     height: 42px;
@@ -51,21 +57,26 @@
     justify-content: center;
     align-items: center;
   }
+
   &__desc {
     font-weight: 600;
     font-size: 11px;
-    sub{
+
+    sub {
       vertical-align: sub;
       font-size: smaller;
     }
+
     span {
       display: block;
       margin-top: 5px;
     }
+
     &--think {
       font-weight: normal;
     }
   }
+
   &__data {
     flex: 1 1 auto;
     align-self: center;
@@ -81,6 +92,7 @@
     border: 1px solid $text;
     margin: auto;
   }
+
   &__text:not(:last-child) {
     margin-bottom: 5px;
   }

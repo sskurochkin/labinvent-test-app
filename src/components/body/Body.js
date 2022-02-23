@@ -1,28 +1,29 @@
 import './Body.scss';
-import Header from "./Header/Header";
-import Wrapper from "./Wrapper/Wrapper";
-import AddInfo from "./AddInfo/AddInfo";
-import InfoCards from "./InfoCards/InfoCards";
+import Header from "./header/Header";
+import Wrapper from "./wrapper/Wrapper";
+import AddInfo from "./addInfo/AddInfo";
+import InfoCards from "./infoCards/InfoCards";
 import Method from "./Method/Method";
+import React from "react";
 
 const Body = () => {
-
 
 
 	return (<div className="body">
 
 
-		<Header/>
+			<Header/>
 
-		<Wrapper>
-			<InfoCards/>
-			<div className="method-wrapper">
-				<Method/>
-				<AddInfo/>
-			</div>
-		</Wrapper>
+			<Wrapper>
+				<InfoCards/>
+				<div className="method-wrapper">
+					<Method/>
+					<AddInfo/>
+				</div>
+			</Wrapper>
 
-	</div>
-)};
+		</div>
+	)
+};
 
 export default Body

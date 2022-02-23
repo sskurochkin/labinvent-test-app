@@ -11,7 +11,7 @@ function Scheme(props) {
 			<div className="scheme">
 				<div className="scheme__item">
 					<h4 className="scheme__title">Front Inlet</h4>
-					<div className="scheme__img"><img src={inlet}alt=""/>
+					<div className="scheme__img"><img src={inlet} alt=""/>
 					</div>
 					<p className="scheme__desc">SS (H<sub>2</sub>)</p>
 				</div>

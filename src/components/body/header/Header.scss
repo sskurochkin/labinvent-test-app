@@ -10,6 +10,7 @@
   box-shadow: 0 1px 2px rgba($color: #333333, $alpha: 0.2);
   position: relative;
   z-index: 4;
+
   .menu {
     flex: 0 0 60px;
     height: 100%;
@@ -38,13 +39,16 @@
         top: 10px;
         transition: all linear 0.2s;
       }
+
       &::after {
         top: -11px;
       }
     }
+
     &:hover {
       background-color: $line;
     }
+
     &:hover span,
     &:hover span::after,
     &:hover span::before {
@@ -52,9 +56,11 @@
       color: #fff;
     }
   }
+
   &__nav {
     flex: 1 1 auto;
   }
+
   &__admin {
     display: flex;
   }
@@ -81,6 +87,7 @@
       background-color: $primary;
       transition: all ease 0.2s;
     }
+
     li {
       a {
         height: 50px;
@@ -89,11 +96,13 @@
         display: block;
         position: relative;
         transition: all linear 0.2s;
+
         &:hover {
           background-color: $line;
           color: #fff;
         }
       }
+
       &:hover .nav__list__sublist {
         visibility: visible;
         opacity: 1;
@@ -111,6 +120,7 @@
     border-left: 1px solid $line;
     display: flex;
     align-items: center;
+
     img {
       margin-right: 15px;
       width: 30px;
@@ -118,20 +128,24 @@
       object-fit: contain;
     }
   }
+
   &__lang {
     padding: 0 35px 0 30px;
     height: 50px;
     display: flex;
     align-items: center;
     border-left: 1px solid $line;
-    .show-more::after{
+
+    .show-more::after {
       right: -5px;
     }
   }
+
   &__lock {
     height: 50px;
     padding: 0 5px 0 20px;
     border-left: 1px solid $line;
+
     img {
       height: 100%;
       width: 17px;

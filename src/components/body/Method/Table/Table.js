@@ -1,19 +1,21 @@
 import './Table.scss'
 
 import React, {useState} from 'react';
-import TableHeader from "./TableHeader/TableHeader";
+import TableHeader from "./tableHeader/TableHeader";
 import Title from "../../../UI/Title/Title";
-import { v4 as uuidv4 } from "uuid";
+import {v4 as uuidv4} from "uuid";
 
 const Table = ({table}) => {
 
 	const [tableRows, setTableRows] = useState(table?.tableSteps || [])
 
+
 	const addRowHandle = () => {
 
+		const id = uuidv4();
 		let newRow = {
-			id: uuidv4(),
-			holdTime: 0,
+			id: id,
+			holdTime: null,
 			ramp: '',
 			rate: 0,
 			runTime: 0,
@@ -22,20 +24,36 @@ const Table = ({table}) => {
 		}
 		setTableRows([...tableRows, newRow])
 	}
+	const logger = (e) => {
+		const name = e.name
+		const id = e
+		const value = e.value
+
+		const filtered = tableRows.map(item=>Object.keys(item).)
+
+		console.log(filtered)
+
+		console.log(id)
+		console.log(`${name} = ${value + id}`)
+
+	}
+
 
 	const elements = tableRows.map((row, index) => {
-		return (<tr key={index}>
+		return (<tr key={uuidv4(3)} onBlur={e => logger(e.target)} data-id={row.id}>
 			<td><input type="radio" name="table" id="" checked={row.selected} onChange={() => {
 			}}/></td>
 			<td>{row.ramp}</td>
-			<td>{row.rate}</td>
-			<td>{row.value}</td>
+			<td><input name={'rate'}  onChange={() => {
+			}}/></td>
+			<td><input name={'value'}  onChange={() => {
+			}}/></td>
 			<td>{row.holdTime}</td>
 			<td>{row.runTime}</td>
 		</tr>)
 	})
 
-	console.log(elements)
+	// console.log(elements)
 
 	return (
 		<div className="method__table ">

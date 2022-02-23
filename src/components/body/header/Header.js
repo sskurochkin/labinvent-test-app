@@ -1,9 +1,9 @@
 import './Header.scss';
-import  adminLogo from '../../../assets/img/admin.png';
-import  lock from '../../../assets/img/lock.png';
+import adminLogo from '../../../assets/img/admin.png';
+import lock from '../../../assets/img/lock.png';
 
-const Header = ()=>{
-	return(<div className="body__header">
+const Header = () => {
+	return (<div className="body__header">
 		<div className="menu">
 			<span></span>
 		</div>

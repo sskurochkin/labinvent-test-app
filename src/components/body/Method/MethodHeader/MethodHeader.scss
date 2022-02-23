@@ -1,43 +1,47 @@
 @import "../../../../assets/scss/vars";
 
 
-
 .method__header {
   display: flex;
   background-color: $primary;
   border-bottom: 1px solid $line;
-  &>* {
+
+  & > * {
     padding: 0px 40px 0 15px;
     height: 50px;
     line-height: 50px;
     border-right: 1px solid $line;
     text-transform: uppercase;
   }
+
   &--active-item {
     background-color: #fff;
   }
 }
 
-.worklist{
+.worklist {
   display: flex;
   padding-right: 20px;
   align-items: center;
-  &>*{
+
+  & > * {
     padding: 0 17px;
   }
-  &__title{
+
+  &__title {
     font-weight: 500;
     padding-right: 10px;
     padding-left: 0;
     display: flex;
-    .status{
+
+    .status {
       padding-left: 30px;
       font-weight: 600;
       color: $blue;
       position: relative;
       cursor: pointer;
 
-      &::before{
+      &::before {
         content: '\25B2';
         position: absolute;
         bottom: 1px;
@@ -47,9 +51,11 @@
         transform: rotate(90deg);
       }
     }
-    .stop{
+
+    .stop {
       color: red;
-      &::before{
+
+      &::before {
         content: '\25A0';
         bottom: 3px;
         left: 15px;
@@ -57,9 +63,11 @@
       }
     }
   }
-  &__todo{
+
+  &__todo {
     color: $t-gray;
-    span{
+
+    span {
       padding-left: 5px;
       text-transform: none;
       color: #000;
@@ -67,8 +75,10 @@
   }
 
 }
+
 .method__name {
   font-weight: 600;
+
   span {
     font-weight: normal;
     text-transform: none;

@@ -1,17 +1,19 @@
 import React, {useEffect, useState} from 'react';
-import Table from "./Table/Table";
-import MethodHeader from "./MethodHeader/MethodHeader";
-import MethodBody from "./MethodBody/MethodBody";
-import Scheme from "./Scheme/Scheme";
-import Form from "./Form/Form";
-import MethodLeftbar from "./MethodLeftbar/MethodLeftbar";
-import MethodFooter from "./MethodFooter/MethodFooter";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchDefaultMethod, fetchMethod} from '../../../store/methodSlice';
-
-import './Method.scss';
 import {getMethodSelector} from "../../../store/selectors";
+
+import Table from "./Table/Table";
+import MethodHeader from "./methodHeader/MethodHeader";
+import MethodBody from "./methodBody/MethodBody";
+import Scheme from "./scheme/Scheme";
+import Form from "./form/Form";
+import MethodLeftbar from "./methodLeftbar/MethodLeftbar";
+import MethodFooter from "./methodFooter/MethodFooter";
 import MyModal from "../../UI/Modal/Modal";
+import Spinner from "../../UI/Spinner/Spinner";
+import Error from "../../UI/Error/Error";
+import './Method.scss';
 
 
 function Method(props) {
@@ -21,7 +23,7 @@ function Method(props) {
 
 	const dispatch = useDispatch()
 	const data = useSelector(getMethodSelector)
-	const methodLoadingStatus = useSelector(state => state.method.methodLoadingStatus)
+	const isLoading = useSelector(state => state.method.methodLoadingStatus)
 
 	useEffect(() => {
 		dispatch(fetchMethod())
@@ -40,17 +42,21 @@ function Method(props) {
 
 	return (
 		<div className="method">
-			<MethodHeader status={status} name={name} totalTime={totalTime} currentTime={currentTime} runTime={runTime}
-						  countInjections={countInjections}/>
-			{
-				<MethodBody status={methodLoadingStatus}>
-					<MethodLeftbar/>
-					<div className="method__main">
-						<Scheme/>
-						<Form column={column}/>
-					</div>
-					<Table table={pressure}/>
-				</MethodBody>
+			{isLoading === 'loading'
+				? <Spinner/>
+				: (isLoading === 'error'
+					? <Error/>
+					: <><MethodHeader status={status} name={name} totalTime={totalTime} currentTime={currentTime}
+									  runTime={runTime}
+									  countInjections={countInjections}/>
+						<MethodBody>
+							<MethodLeftbar/>
+							<div className="method__main">
+								<Scheme/>
+								<Form column={column}/>
+							</div>
+							<Table table={pressure}/>
+						</MethodBody></>)
 			}
 			<MethodFooter loadDefaultMethod={loadDefaultMethod} showMethods={showAllMethods}/>
 			<MyModal visible={modal} setVisible={setModal}/>

@@ -11,12 +11,14 @@
   background-color: #fff;
   border: 1px solid $line;
   margin-bottom: 14px;
+
   &__title {
     color: #000;
     font-weight: 600;
     padding: 10px 10px 10px 25px;
     position: relative;
     border-bottom: 1px solid $line;
+
     &:before {
       content: "";
       display: block;
@@ -29,35 +31,42 @@
       height: 10px;
       background-color: #1a9022;
     }
+
     &--orange::before {
       background-color: $orange;
     }
   }
+
   &__body {
     height: 150px;
   }
+
   &__desc {
     text-align: center;
     font-size: 10px;
   }
 
 }
+
 .injection {
   height: 100px;
   flex: 0 1 45%;
 
-  &-wrapper{
+  &-wrapper {
     height: 100%;
     display: flex;
     align-items: center;
   }
-  &__body{
+
+  &__body {
     margin-left: 40px;
     display: flex;
     flex-direction: column;
-    img{
+
+    img {
       flex: 0 0 42px;
-      &:last-child{
+
+      &:last-child {
         margin-top: 8px;
       }
     }
@@ -71,11 +80,13 @@
   position: relative;
   padding: 35px 15px 25px;
 }
+
 .bottle {
   position: relative;
   text-align: center;
   font-size: 12px;
   margin-right: 3px;
+
   .icon {
     display: block;
     margin: 0 auto;
@@ -83,6 +94,7 @@
     height: 58px;
     position: relative;
   }
+
   &__title {
     position: absolute;
     top: 0;
@@ -94,6 +106,7 @@
     margin: auto;
   }
 }
+
 .valve {
   display: block;
   margin-left: 25px;

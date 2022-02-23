@@ -8,6 +8,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }
 
 
@@ -15,12 +19,15 @@
   color: $t-gray;
   font-size: 12px;
   display: flex;
+
   &__btn:first-of-type {
     margin-right: 30px;
-    span{
+
+    span {
       font-size: 12px;
     }
   }
+
   span {
     position: relative;
     width: 25px;
@@ -35,6 +42,7 @@
     cursor: pointer;
     transition: all .2s ease;
     bottom: 0;
+
     &:hover {
       bottom: 2px;
       color: #fff;
@@ -46,6 +54,7 @@
 .buttons-right {
   font-size: 12px;
   display: flex;
+
   &__btn {
     position: relative;
     background-color: $btnColor;
@@ -61,19 +70,23 @@
     cursor: pointer;
     transition: all ease 0.2s;
     bottom: 0;
-    &:hover{
+
+    &:hover {
       opacity: .7;
       bottom: 2px;
 
     }
+
     &:last-child {
       margin-right: 0;
     }
+
     &--outline {
       background-color: #fff;
       color: $btnColor;
       border: 1px solid $btnColor;
-      &:hover{
+
+      &:hover {
         background-color: rgb(241, 241, 241);
       }
     }

@@ -4,6 +4,7 @@
   border: $lineAll;
   grid-area: method;
   background-color: #fff;
+  position: relative;
   //main
   &__main {
     flex: 0 1 50%;
