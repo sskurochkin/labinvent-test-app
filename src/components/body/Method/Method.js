@@ -33,12 +33,10 @@ function Method(props) {
 		dispatch(fetchDefaultMethod())
 	}
 	const showAllMethods = () => {
-		console.log('show')
 		setModal(true)
 	}
 
 	const {status, totalTime, name, countInjections, currentTime, column, pressure, runTime} = data
-
 
 	return (
 		<div className="method">

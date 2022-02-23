@@ -49,16 +49,6 @@ const methodSlice = createSlice({
 	name: 'method',
 	initialState,
 	reducers: {
-		// async openMethod(state, action) {
-		// 	console.log(state)
-		// 	const response = await fetch(`http://localhost:5000/api/v1/method/open/${action.payload}`).then(data => state.method = data.json())
-		//
-		// 	state.action = action.payload()
-		//
-		// 	console.log(action)
-		// 	console.log(state.action)
-
-			// console.log(state)
 
 		//здесь должны быть действия со стейтом
 	},
@@ -107,5 +97,4 @@ const methodSlice = createSlice({
 	}
 })
 
-// export const {} = methodSlice.actions
 export default methodSlice.reducer
