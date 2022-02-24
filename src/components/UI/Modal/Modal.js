@@ -4,6 +4,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {getMethodList, getMethodStatus} from "../../../store/selectors";
 import Spinner from "../Spinner/Spinner";
 import {getAllMethods, openSelectedMethod} from "../../../store/methodSlice";
+import {v4 as uuidv4} from "uuid";
 
 const MyModal = ({visible, setVisible}) => {
 
@@ -32,7 +33,7 @@ const MyModal = ({visible, setVisible}) => {
 				<h2>All methods</h2>
 				{status==='loading'?<Spinner/>:(allMethods.map((elem, index)=>{
 					return(
-						<p key={elem} className='modalItem' onClick={()=>openMethod(elem)}><span>{index + 1}.&nbsp;</span>{elem}</p>
+						<p key={uuidv4(4)} className='modalItem' onClick={()=>openMethod(elem)}><span>{index + 1}.&nbsp;</span>{elem}</p>
 					)
 				}))}
 			</div>

@@ -38,6 +38,8 @@ function Method(props) {
 
 	const {status, totalTime, name, countInjections, currentTime, column, pressure, runTime} = data
 
+	console.log(data)
+
 	return (
 		<div className="method">
 			{isLoading === 'loading'

@@ -1,7 +1,17 @@
 import './MethodFooter.scss';
 import React from 'react';
+import {useDispatch, useSelector} from "react-redux";
+import {getMethodSelector} from "../../../../store/selectors";
+import {saveCurrentMethod} from "../../../../store/methodSlice";
 
 function MethodFooter({loadDefaultMethod, showMethods}) {
+
+	const dispatch = useDispatch()
+	const method = useSelector(state => state.method.method)
+
+	const saveMethodHandler = (data)=>{
+		dispatch(saveCurrentMethod(data))
+	}
 
 
 	return (
@@ -12,9 +22,9 @@ function MethodFooter({loadDefaultMethod, showMethods}) {
 				</div>
 			</div>
 			<div className="buttons-right ">
-				<div className="buttons-right__btn ">Save</div>
+				<div className="buttons-right__btn " onClick={()=>{saveMethodHandler(method)}}>Save</div>
 				<div className="buttons-right__btn ">Save as</div>
-				<div className="buttons-right__btn buttons-right__btn--outline ">Cancel</div>
+				<div className="buttons-right__btn buttons-right__btn--outline">Cancel</div>
 			</div>
 		</div>
 	);

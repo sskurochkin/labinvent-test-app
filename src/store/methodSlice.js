@@ -1,5 +1,4 @@
-import {createSlice, createAsyncThunk} from "@reduxjs/toolkit";
-
+import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 
 const initialState = {
 	method: {},
@@ -37,20 +36,38 @@ export const getAllMethods = createAsyncThunk(
 
 export const openSelectedMethod = createAsyncThunk(
 	'method/openSelectedMethod',
-	async function(name){
-		console.log(name)
+	async function (name) {
 		const response = await fetch(`http://localhost:5000/api/v1/method/open/${name}`)
 		const data = await response.json()
 		return data
 	}
 )
 
+
+export const saveCurrentMethod = createAsyncThunk(
+	'method/save',
+	async (method) => {
+
+		const res = await fetch('http://localhost:5000/api/v1/method/save', {
+			method: 'POST',
+			headers: {'Content-Type': 'application/json'},
+			body: JSON.stringify({method})
+		}).then(res => res.json())
+
+		console.log(res.method)
+		return res.method
+	}
+)
+
+
 const methodSlice = createSlice({
 	name: 'method',
 	initialState,
 	reducers: {
+		addRowToTable: (state, action) => {
+			state.method.pressure.tableSteps = action.payload
+		},
 
-		//здесь должны быть действия со стейтом
 	},
 	extraReducers: (builder) => {
 		builder
@@ -94,7 +111,21 @@ const methodSlice = createSlice({
 			.addCase(openSelectedMethod.rejected, state => {
 				state.methodLoadingStatus = 'error'
 			})
+			.addCase(saveCurrentMethod.pending, state => {
+				state.methodLoadingStatus = 'loading'
+			})
+			.addCase(saveCurrentMethod.fulfilled, (state, action) => {
+				console.log(action.payload)
+				state.methodLoadingStatus = 'idle';
+				state.method = action.payload
+				state.allMethods.push(action.payload.name)
+			},)
+		.addCase(saveCurrentMethod.rejected, state => {
+			state.methodLoadingStatus = 'error'
+		})
 	}
 })
+
+export const {addRowToTable,} = methodSlice.actions
 
 export default methodSlice.reducer
