@@ -3,7 +3,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {fetchDefaultMethod, fetchMethod} from '../../../store/methodSlice';
 import {getMethodSelector} from "../../../store/selectors";
 
-import Table from "./Table/Table";
+import Table from "./table/Table";
 import MethodHeader from "./methodHeader/MethodHeader";
 import MethodBody from "./methodBody/MethodBody";
 import Scheme from "./scheme/Scheme";

@@ -3,7 +3,7 @@ import Header from "./header/Header";
 import Wrapper from "./wrapper/Wrapper";
 import AddInfo from "./addInfo/AddInfo";
 import InfoCards from "./infoCards/InfoCards";
-import Method from "./Method/Method";
+import Method from "./method/Method";
 import React from "react";
 
 const Body = () => {

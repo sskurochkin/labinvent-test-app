@@ -54,7 +54,6 @@ export const saveCurrentMethod = createAsyncThunk(
 			body: JSON.stringify({method})
 		}).then(res => res.json())
 
-		console.log(res.method)
 		return res.method
 	}
 )
@@ -115,10 +114,10 @@ const methodSlice = createSlice({
 				state.methodLoadingStatus = 'loading'
 			})
 			.addCase(saveCurrentMethod.fulfilled, (state, action) => {
-				console.log(action.payload)
 				state.methodLoadingStatus = 'idle';
 				state.method = action.payload
-				state.allMethods.push(action.payload.name)
+				const methodName = `method_saved_last_${state.allMethods.length + 1}.amx`
+				state.allMethods.push(action.payload.name = methodName)
 			},)
 		.addCase(saveCurrentMethod.rejected, state => {
 			state.methodLoadingStatus = 'error'

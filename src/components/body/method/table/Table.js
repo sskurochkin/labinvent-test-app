@@ -1,17 +1,16 @@
-import './Table.scss'
+import React, {useCallback, useState} from 'react';
+import {v4 as uuidv4} from "uuid";
+import {useDispatch} from "react-redux";
+import {addRowToTable} from "../../../../store/methodSlice";
 import Title from "../../../UI/Title/Title";
 import TableHeader from "./tableHeader/TableHeader";
-import Td from "./td/Td";
-import React, {useState} from 'react';
-import {v4 as uuidv4} from "uuid";
-import {useDispatch, useSelector} from "react-redux";
-import {addRowToTable} from "../../../../store/methodSlice";
+import TableCell from "./tableCell/TableCell";
+import './Table.scss'
 
 const Table = ({table}) => {
 
 	const [tableRows, setTableRows] = useState(table?.tableSteps || [])
 	const dispatch = useDispatch()
-	const method = useSelector(state => state.method.method)
 
 
 	const addRowHandle = () => {
@@ -29,16 +28,19 @@ const Table = ({table}) => {
 		setTableRows([...tableRows, newRow])
 	}
 
-	const onChangeHandler = (id, name, value) => {
+	const onChangeHandler = useCallback((id, name, value) => {
+		const newTableRows = tableRows.map(elem => {
+			if (elem.id === id) {
+				return {...elem, [name]: value}
+			} else {
+				return elem
+			}
+		})
 
-		const editRow = tableRows.find(elem => elem.id === id)
-		editRow[name] = value
-		setTableRows([...tableRows])
-		console.log(tableRows)
-		dispatch(addRowToTable(tableRows))
-	}
+		setTableRows(newTableRows)
+		dispatch(addRowToTable(newTableRows))
+	}, [tableRows])
 
-	console.log(method)
 
 	const elements = tableRows.map((row, index) => {
 
@@ -54,9 +56,9 @@ const Table = ({table}) => {
 						return <td key={uuidv4(5)}><input type="radio" name="table" id="" checked={row[key]} onChange={() => {}}/></td>
 					}
 					return (
-						<Td
+						<TableCell
 							id={row.id || ''} key={uuidv4(4)} blur={onChangeHandler} name={key} cellValue={row[key]}>
-						</Td>
+						</TableCell>
 					)
 				})}
 			</tr>
