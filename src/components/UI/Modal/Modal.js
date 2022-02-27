@@ -16,6 +16,7 @@ const MyModal = ({visible, setVisible}) => {
 		dispatch(getAllMethods())
 	}, [])
 
+
 	const rootClasses = ['myModal']
 	if (visible) {
 		rootClasses.push('active');

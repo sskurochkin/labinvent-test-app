@@ -95,7 +95,8 @@ const methodSlice = createSlice({
 			})
 			.addCase(getAllMethods.fulfilled, (state, action) => {
 				state.allMethodsStatus = 'idle';
-				state.allMethods = action.payload
+				console.log(action.payload)
+				// state.allMethods = action.payload
 			},)
 			.addCase(getAllMethods.rejected, state => {
 				state.allMethodsStatus = 'error'
@@ -116,7 +117,7 @@ const methodSlice = createSlice({
 			.addCase(saveCurrentMethod.fulfilled, (state, action) => {
 				state.methodLoadingStatus = 'idle';
 				state.method = action.payload
-				const methodName = `method_saved_last_${state.allMethods.length + 1}.amx`
+				const methodName = `method_saved_last_${state.allMethods.length - 2}.amx`
 				state.allMethods.push(action.payload.name = methodName)
 			},)
 		.addCase(saveCurrentMethod.rejected, state => {
