@@ -1,0 +1,39 @@
+.myModal {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  display: none;
+  background: rgba(0,0,0, 0.5);
+}
+
+.myModalContent {
+  padding: 25px;
+  background: white;
+  border-radius: 10px;
+  min-width: 350px;
+  h2{
+    margin-bottom: 25px;
+    font-size: 24px;
+    font-weight: 600;
+    border-bottom: 2px solid #2d2d2d;
+  }
+
+}
+.modalItem{
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: all linear .2s;
+  &:hover{
+    color: #797979;
+    text-decoration: underline;
+  }
+}
+
+.myModal.active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

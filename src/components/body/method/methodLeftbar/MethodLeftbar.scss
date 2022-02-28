@@ -1,0 +1,29 @@
+@import "../../../../assets/scss/vars";
+
+.method__leftbar {
+  flex: 0 1 150px;
+  background-color: $primary;
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+
+  &-item {
+    height: 40px;
+    line-height: 40px;
+    padding-left: 15px;
+    border-bottom: 1px solid $line;
+    border-right: 1px solid $line;
+
+    &:last-child {
+      height: auto;
+      flex: 1 1 auto;
+      border-bottom: none;
+    }
+
+    &--active {
+      border-right: none;
+      background-color: #fff;
+      z-index: 2;
+    }
+  }
+}

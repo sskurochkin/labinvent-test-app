@@ -1,0 +1,131 @@
+@import "../../../assets/scss/vars";
+
+.info-cards {
+  padding: 15px;
+  grid-area: info-cards;
+  position: relative;
+  z-index: 0;
+}
+
+.info-card {
+  background-color: #fff;
+  border: 1px solid $line;
+  margin-bottom: 14px;
+
+  &__title {
+    color: #000;
+    font-weight: 600;
+    padding: 10px 10px 10px 25px;
+    position: relative;
+    border-bottom: 1px solid $line;
+
+    &:before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 8px;
+      margin: auto 0;
+      width: 10px;
+      height: 10px;
+      background-color: #1a9022;
+    }
+
+    &--orange::before {
+      background-color: $orange;
+    }
+  }
+
+  &__body {
+    height: 150px;
+  }
+
+  &__desc {
+    text-align: center;
+    font-size: 10px;
+  }
+
+}
+
+.injection {
+  height: 100px;
+  flex: 0 1 45%;
+
+  &-wrapper {
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  &__body {
+    margin-left: 40px;
+    display: flex;
+    flex-direction: column;
+
+    img {
+      flex: 0 0 42px;
+
+      &:last-child {
+        margin-top: 8px;
+      }
+    }
+  }
+}
+
+.bottle-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  padding: 35px 15px 25px;
+}
+
+.bottle {
+  position: relative;
+  text-align: center;
+  font-size: 12px;
+  margin-right: 3px;
+
+  .icon {
+    display: block;
+    margin: 0 auto;
+    width: 30px;
+    height: 58px;
+    position: relative;
+  }
+
+  &__title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 10px;
+    height: 10px;
+    margin: auto;
+  }
+}
+
+.valve {
+  display: block;
+  margin-left: 25px;
+  height: 35px;
+  flex: 0 0 40%;
+}
+
+.arrow {
+  position: absolute;
+  background-color: $primary;
+  width: 26px;
+  height: 26px;
+  line-height: 26px;
+  text-align: center;
+  color: $t-gray;
+  font-size: 10px;
+  border-radius: 100%;
+  top: 45px;
+  right: -13px;
+  z-index: 2;
+  box-shadow: 2px 0px 1px 0px rgba(51, 51, 51, 0.2);
+}
