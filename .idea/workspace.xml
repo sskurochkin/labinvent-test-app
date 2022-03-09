@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="deb810f6-cc32-4056-ab73-eae5563178e5" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="25kJZUYfDLpZnWMi7QJFBDqAkeH" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="autoscrollToSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="I:/WEB/wood" />
+    <property name="nodejs_package_manager_path" value="npm" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="deb810f6-cc32-4056-ab73-eae5563178e5" name="Default Changelist" comment="" />
+      <created>1646065206411</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1646065206411</updated>
+      <workItem from="1646065210895" duration="23000" />
+      <workItem from="1646592867010" duration="88000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="325" y="177" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog" timestamp="1646592934330">
+      <screen x="0" y="0" width="1152" height="680" />
+    </state>
+    <state x="325" y="177" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog/0.0.1152.680@0.0.1152.680" timestamp="1646592934330" />
+    <state x="444" y="164" key="FileChooserDialogImpl" timestamp="1646592932660">
+      <screen x="0" y="0" width="1152" height="680" />
+    </state>
+    <state x="444" y="164" key="FileChooserDialogImpl/0.0.1152.680@0.0.1152.680" timestamp="1646592932660" />
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1646065228722" />
+    <state x="239" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1646592893809">
+      <screen x="0" y="0" width="1152" height="680" />
+    </state>
+    <state x="239" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1152.680@0.0.1152.680" timestamp="1646592893809" />
+  </component>
+</project>
