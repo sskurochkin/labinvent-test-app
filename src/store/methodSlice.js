@@ -11,7 +11,7 @@ export const fetchMethod = createAsyncThunk(
 	'method/fetchMethod',
 	async function () {
 
-		const response = await fetch('http://localhost:5000/api/v1/method/current')
+		const response = await fetch('http://localhost:8000/api/v1/method/current')
 		const data = await response.json()
 		return data
 	}
@@ -20,7 +20,7 @@ export const fetchMethod = createAsyncThunk(
 export const fetchDefaultMethod = createAsyncThunk(
 	'method/fetchDefaultMethod',
 	async function () {
-		const response = await fetch('http://localhost:5000/api/v1/method/open/default.amx')
+		const response = await fetch('http://localhost:8000/api/v1/method/open/default.amx')
 		const data = await response.json()
 		return data
 	}
@@ -29,7 +29,7 @@ export const fetchDefaultMethod = createAsyncThunk(
 export const getAllMethods = createAsyncThunk(
 	'method/getAllMethods',
 	async function () {
-		const response = await fetch('http://localhost:5000/api/v1/method/name/saved')
+		const response = await fetch('http://localhost:8000/api/v1/method/name/saved')
 		const data = await response.json()
 		return data
 	})
@@ -37,7 +37,7 @@ export const getAllMethods = createAsyncThunk(
 export const openSelectedMethod = createAsyncThunk(
 	'method/openSelectedMethod',
 	async function (name) {
-		const response = await fetch(`http://localhost:5000/api/v1/method/open/${name}`)
+		const response = await fetch(`http://localhost:8000/api/v1/method/open/${name}`)
 		const data = await response.json()
 		return data
 	}
@@ -48,7 +48,7 @@ export const saveCurrentMethod = createAsyncThunk(
 	'method/save',
 	async (method) => {
 
-		const res = await fetch('http://localhost:5000/api/v1/method/save', {
+		const res = await fetch('http://localhost:8000/api/v1/method/save', {
 			method: 'POST',
 			headers: {'Content-Type': 'application/json'},
 			body: JSON.stringify({method})
@@ -95,8 +95,7 @@ const methodSlice = createSlice({
 			})
 			.addCase(getAllMethods.fulfilled, (state, action) => {
 				state.allMethodsStatus = 'idle';
-				console.log(action.payload)
-				// state.allMethods = action.payload
+				state.allMethods = action.payload
 			},)
 			.addCase(getAllMethods.rejected, state => {
 				state.allMethodsStatus = 'error'

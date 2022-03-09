@@ -53,7 +53,7 @@ const Table = ({table}) => {
 						return null
 					}
 					if (key === 'selected') {
-						return <td key={uuidv4(5)}><input type="radio" name="table" id="" checked={row[key]} onChange={() => {}}/></td>
+						return <td key={uuidv4(5)}><input type="radio" name='selected' id=""/></td>
 					}
 					return (
 						<TableCell

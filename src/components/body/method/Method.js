@@ -16,7 +16,7 @@ import Error from "../../UI/Error/Error";
 import './Method.scss';
 
 
-function Method(props) {
+function Method() {
 
 	const [modal, setModal] = useState(false)
 
@@ -37,8 +37,6 @@ function Method(props) {
 	}
 
 	const {status, totalTime, name, countInjections, currentTime, column, pressure, runTime} = data
-
-	console.log(data)
 
 	return (
 		<div className="method">
